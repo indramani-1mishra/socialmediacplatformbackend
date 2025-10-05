@@ -12,7 +12,7 @@ const createUserincontroller =async(req,res)=>{
            gender:user.gender,
            bio:user.bio,
            interests:user.interests,
-           profilePicture:req.file.path
+           profilePicture:req?.file?.path
         }
 
     const response= await createuserinservicelayer(data);
