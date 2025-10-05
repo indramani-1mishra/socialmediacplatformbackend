@@ -29,7 +29,7 @@ const getalluser= async()=>{
 }
 const updateuser =async(userid,updateddata)=>{
     try{
-        const response = await findByIdAndUpdate(userid,updateddata,{new:true});
+        const response = await User.findByIdAndUpdate(userid,updateddata,{new:true});
         return response;
     }catch(error){
         console.log("Error in updating user",error);

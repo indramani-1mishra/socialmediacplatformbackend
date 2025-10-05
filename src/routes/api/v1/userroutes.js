@@ -1,6 +1,10 @@
 const express = require('express');
-const { createUserincontroller } = require('../../../controller/usercontroller');
+const { createUserincontroller, getalluserincontroller, updateuserincontroller, deleteuserincontroller, getuserbyidcontroller } = require('../../../controller/usercontroller');
 const upload = require('../../../middlerware/multer');
 const userrouter = express.Router();
 userrouter.post('/',upload.single('profilepicture'),createUserincontroller);
+userrouter.get('/',getalluserincontroller);
+userrouter.put('/:id',upload.single('profilepicture'),updateuserincontroller);
+userrouter.delete('/:id',deleteuserincontroller);
+userrouter.get('/:id',getuserbyidcontroller);
 module.exports= userrouter;

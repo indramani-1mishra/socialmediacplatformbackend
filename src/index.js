@@ -4,6 +4,7 @@ const app = express();
 const cors = require('cors');
 const connectDB = require('./configlayer/databaseconfig');
 const apirouter = require('./routes/api/apiroutes');
+const cookieParser = require("cookie-parser");
 
 app.use(cors(
    {
@@ -16,6 +17,7 @@ app.get('/', (req, res) => {
 });
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use('/api',apirouter);
 app.listen(PORT, async() => {
    await connectDB();
